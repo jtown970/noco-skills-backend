@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import userRoute from "./routes/user.route.js";
 import gigRoute from "./routes/gig.route.js";
 import orderRoute from "./routes/order.route.js";
-import conversationRoute from "./routes/conversation.route.js";
+import conversationRoute from "./routes/conversation.route.js";  
 import messageRoute from "./routes/message.route.js";
 import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
@@ -12,9 +12,8 @@ import appointmentsRoute from "./routes/appointments.js";
 import googleRoute from "./routes/google.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-
-import {google} from 'googleapis'
-import axios from "axios"
+import {google} from 'googleapis';
+import axios from "axios";
 
 const app = express();
 dotenv.config();
@@ -50,10 +49,11 @@ app.use((err, req, res, next) => {
   return res.status(errorStatus).send(errorMessage);
 });
 
-app.listen(8000, () => {
+const port = process.env.PORT || 8001;
+app.listen(port, () => {
   connect();
-  console.log("backend server is running!");
-}) 
+  console.log(`backend server is running! port: ${port}`);
+}); 
 
 
 
