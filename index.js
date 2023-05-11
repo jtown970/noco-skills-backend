@@ -28,7 +28,7 @@ const connect = async () => {
   }
 }
 
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "https://645d7576e0d7ab158178bee7--stupendous-bienenstitch-688288.netlify.app/", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
