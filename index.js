@@ -11,7 +11,7 @@ import authRoute from "./routes/auth.route.js";
 import appointmentsRoute from "./routes/appointments.js";
 import googleRoute from "./routes/google.route.js";
 import cookieParser from "cookie-parser";
-import cors from "cors";
+// import cors from "cors";
 import {google} from 'googleapis';
 import axios from "axios";
 
@@ -28,7 +28,7 @@ const connect = async () => {
   }
 }
 
-app.use(cors({ origin: "https://645d7576e0d7ab158178bee7--stupendous-bienenstitch-688288.netlify.app/", credentials: true }));
+// app.use(cors({ origin: "https://645d7576e0d7ab158178bee7--stupendous-bienenstitch-688288.netlify.app/", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
