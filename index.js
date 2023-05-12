@@ -28,7 +28,7 @@ const connect = async () => {
   }
 }
 
-app.use(cors({ origin: "https://noco-skills-backend.adaptable.app/", credentials: true }));
+app.use(cors({ origin: "https://noco-skills-backend.adaptable.app", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
