@@ -15,6 +15,7 @@ import cors from "cors";
 import {google} from 'googleapis';
 import axios from "axios";
 
+
 const app = express();
 dotenv.config();
 mongoose.set("strictQuery", true);
@@ -28,7 +29,27 @@ const connect = async () => {
   }
 }
 
-app.use(cors({ origin: "https://noco-skills-backend.adaptable.app:80", credentials: true }));
+
+// testing cors change
+const allowedOrigins = [
+  'https://noco-skills-backend.adaptable.app',
+  'https://stupendous-bienenstitch-688288.netlify.app',
+  'https://localhost:3000'
+]
+
+const corsOptions = {
+  origin: (origin, callback) => {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+          callback(null, true)
+      } else {
+          callback(new Error('Not allowed by CORS'))
+      }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 
